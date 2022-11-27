@@ -29,9 +29,12 @@ pipeline {
         }
 		stage('lock-resource){
 			echo 'Starting resource locking'
+			
+			steps{
 
-			lock(label: 'label', variable: 'var') {
-				echo "Resource locked: ${env.var}"
+				lock(label: 'label', variable: 'var') {
+					echo "Resource locked: ${env.var}"
+				}
 			}
 			
 			echo 'Finished resources locking'
