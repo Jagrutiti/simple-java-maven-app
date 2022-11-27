@@ -27,7 +27,7 @@ pipeline {
                 sh './jenkins/scripts/deliver.sh'
             }
         }
-		stage('lock-resource){
+		stage('lock-resource'){
 			echo 'Starting resource locking'
 			
 			steps{
