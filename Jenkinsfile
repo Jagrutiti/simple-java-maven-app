@@ -28,16 +28,18 @@ pipeline {
             }
         }
 		stage('lock-resource'){
-			echo 'Starting resource locking'			
 
             steps{
+
+                echo 'Starting resource locking'	
 
                 lock(resource: 'DK_Printer_ColorA3_2342', label: 'label', variable: 'var') {
                     echo "Resource locked: ${env.var}"
                 }
+                echo 'Finished resources locking'
+
             }
 
-            echo 'Finished resources locking'
         }
     }
 }
