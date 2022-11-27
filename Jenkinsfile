@@ -33,7 +33,7 @@ pipeline {
 
                 echo 'Starting resource locking'	
 
-                lock(label: 'label', variable: 'var', resource: null) {
+                lock(label: 'DK_Printers_Office', variable: 'var', resource: null) {
                     echo "Resource locked: ${env.var}"
                 }
                 echo 'Finished resources locking'
