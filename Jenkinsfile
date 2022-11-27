@@ -27,17 +27,17 @@ pipeline {
                 sh './jenkins/scripts/deliver.sh'
             }
         }
-		stage('lock-resource){
-			echo 'Starting resource locking'
-			
-			steps{
+	stage('lock-resource){
+		echo 'Starting resource locking'
 
-				lock(label: 'label', variable: 'var') {
-					echo "Resource locked: ${env.var}"
-				}
+		steps{
+
+			lock(label: 'label', variable: 'var') {
+				echo "Resource locked: ${env.var}"
 			}
-			
-			echo 'Finished resources locking'
 		}
+
+		echo 'Finished resources locking'
+	}
     }
 }
