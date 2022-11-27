@@ -32,7 +32,7 @@ pipeline {
 
             steps{
 
-                lock(label: 'label', variable: 'var') {
+                lock(resource: 'DK_Printer_ColorA3_2342', label: 'label', variable: 'var') {
                     echo "Resource locked: ${env.var}"
                 }
             }
