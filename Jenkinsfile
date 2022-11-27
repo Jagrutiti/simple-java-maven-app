@@ -9,6 +9,7 @@ pipeline {
         stage('Build') { 
             steps {
                 sh 'mvn -B -DskipTests clean package' 
+				
             }
         }
 		stage('Test') {
@@ -25,6 +26,15 @@ pipeline {
             steps {
                 sh './jenkins/scripts/deliver.sh'
             }
-        }		
+        }
+		stage('lock-resource){
+			echo 'Starting resource locking'
+
+			lock(label: 'label', variable: 'var') {
+				echo "Resource locked: ${env.var}"
+			}
+			
+			echo 'Finished resources locking'
+		}
     }
 }
